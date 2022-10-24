@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/Social_network_app/static/css/main.0b693766.css",
-    "main.js": "/Social_network_app/static/js/main.dcdb5c3f.js",
+    "main.css": "/Social_network_app/static/css/main.d609db28.css",
+    "main.js": "/Social_network_app/static/js/main.cc63f18a.js",
     "static/js/787.5b55d35b.chunk.js": "/Social_network_app/static/js/787.5b55d35b.chunk.js",
     "static/media/imgProfileTopBanner.jpg": "/Social_network_app/static/media/imgProfileTopBanner.d57ae279fb8da9faa818.jpg",
     "static/media/avaPost.png": "/Social_network_app/static/media/avaPost.e6eb02b8568df6b4fffe.png",
     "static/media/imgLogoHeader.png": "/Social_network_app/static/media/imgLogoHeader.b57829a0f64063f93eb3.png",
     "static/media/likesImg.png": "/Social_network_app/static/media/likesImg.41c8ec12b567d13aadbd.png",
     "index.html": "/Social_network_app/index.html",
-    "main.0b693766.css.map": "/Social_network_app/static/css/main.0b693766.css.map",
-    "main.dcdb5c3f.js.map": "/Social_network_app/static/js/main.dcdb5c3f.js.map",
+    "main.d609db28.css.map": "/Social_network_app/static/css/main.d609db28.css.map",
+    "main.cc63f18a.js.map": "/Social_network_app/static/js/main.cc63f18a.js.map",
     "787.5b55d35b.chunk.js.map": "/Social_network_app/static/js/787.5b55d35b.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.0b693766.css",
-    "static/js/main.dcdb5c3f.js"
+    "static/css/main.d609db28.css",
+    "static/js/main.cc63f18a.js"
   ]
 }
