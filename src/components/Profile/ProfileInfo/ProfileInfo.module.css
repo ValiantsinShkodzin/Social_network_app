@@ -1,0 +1,25 @@
+.infoBlock {
+    padding: 15px;
+    display: grid;
+    grid-template-columns: 2fr  5fr;
+
+}
+.nameBlock > span {
+font-family: cursive;
+font-size: smaller;
+color: blueviolet;
+}
+.descBlock {
+    margin-top: 15px;
+}
+
+.TopBanner {
+    width: 100%;
+    height: 175px;
+}
+
+.avaProfile {
+    width: 200px;
+    height: 200px;
+    border-radius: 15px;
+}

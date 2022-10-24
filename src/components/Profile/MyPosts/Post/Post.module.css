@@ -1,0 +1,13 @@
+.postItem {
+    border: solid rgb(221, 221, 221) 4px;
+    border-radius: 10px;
+}
+
+.avaPost {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+.likesImg {
+    width: 40px;
+}

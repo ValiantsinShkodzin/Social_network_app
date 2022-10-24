@@ -1,0 +1,24 @@
+.appNav {
+    grid-area: n;
+    background-color: rgb(172, 171, 170);
+    display: flex;
+    justify-content: center;
+}
+.linksNav {
+    margin-top: 25px;
+}
+
+.item {
+    color: azure;
+    text-decoration: none;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 10px;
+    
+}
+
+.active {
+    color: rgb(78, 78, 78);
+    text-decoration: none;
+}
+
