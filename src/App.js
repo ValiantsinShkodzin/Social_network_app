@@ -22,10 +22,10 @@ function App(props) {
                                     store={props.store} />} />;
           <Route path='/dialogs/*' element={<DialogsContainer
                                     store={props.store} />} />;
+          <Route path='/users' element={<UsersContainer />} />;
           <Route path='/news' element={<News />} />;
           <Route path='/music' element={<Music />} />;
           <Route path='/settings' element={<Settings />} />;
-          <Route path='/users' element={<UsersContainer />} />;
         </Routes>
       </div>
     </div>
