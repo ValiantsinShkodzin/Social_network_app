@@ -1,18 +1,14 @@
 const FOLLOW = "FOLLOW";
 const UNFOLLOW = "UNFOLLOW";
-const SET_USERS = "SET-USERS"
+const SET_USERS = "SET-USERS";
+const SET_CURRENT_PAGE = "SET-CURRENT-PAGE";
+const SET_TOTAL_USERS_COUNT = "SET-TOTAL-USERS-COUNT"
 
 let initialState = {
-    users: [
-        // { id: 1, photoUrl:'https://damion.club/uploads/posts/2022-03/1646980611_1-damion-club-p-portreti-devushek-krasivie-foto-1.jpg',
-        //     followed: true, fullName: 'Valero', status: 'Big boss', location:{city:'Minsk', country:'Belarus'} },
-        // { id: 2, photoUrl:'https://images.pexels.com/photos/14043926/pexels-photo-14043926.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-        //     followed: false,fullName: 'Valeria', status: 'Pretty woman', location:{city:'Warszava', country:'Rzecz Pospolita'} },
-        // { id: 3, photoUrl:'https://images.pexels.com/photos/14059376/pexels-photo-14059376.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-        //     followed: true,fullName: 'Victotia', status: 'Sexy girl', location:{city:'Berlin', country:'Germany'} },
-        // { id: 4, photoUrl:'https://images.pexels.com/photos/13188542/pexels-photo-13188542.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-        //     followed: false,fullName: 'Verginia', status: 'Sweet chika', location:{city:'Budapest', country:'Hungary'} },
-    ],
+    users: [ ],
+    pageSize:5,
+    totalUsersCount:22,
+    currentPage:2
 };
 
 function usersReducer(state = initialState, action) {
@@ -40,8 +36,15 @@ function usersReducer(state = initialState, action) {
                 })
             };
         case SET_USERS: {
-                return {...state, users: [...state.users, ...action.users]}
+                return {...state, users: action.users}
             };
+        case SET_CURRENT_PAGE: {
+                return {...state, currentPage:action.currentPage}
+            };
+        case SET_TOTAL_USERS_COUNT: {
+                return {...state, totalUsersCount:action.count}
+            };
+            
         default:
             return state;
     }
@@ -62,5 +65,15 @@ export function setUsersAC (users) {
         type: SET_USERS, users
     }
 };
+export function setCurrentPageAC (currentPage) {
+    return {
+        type: SET_CURRENT_PAGE, currentPage
+    }
+};
+export function setUsersTotalCountAC (totalUsersCount) {
+    return {
+        type: SET_TOTAL_USERS_COUNT, count
+    }
+}
 
 export default usersReducer;
