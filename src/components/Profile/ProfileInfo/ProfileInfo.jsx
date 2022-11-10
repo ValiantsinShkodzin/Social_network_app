@@ -4,7 +4,7 @@ import avaProfile from '../../../img/avaProfile.jpg'
 import classes from './ProfileInfo.module.css'
 
 
-function ProfileInfo() {
+function ProfileInfo(props) {
     return (
         <div>
             <div>
@@ -12,7 +12,7 @@ function ProfileInfo() {
             </div>
             <div className={classes.infoBlock}>
                 <div className={classes.avaBlock}>
-                    <img className={classes.avaProfile} src={avaProfile} alt='avaProfile'></img></div>
+                    <img className={classes.avaProfile} src={props.profile.photo.large} alt='avaProfile'></img></div>
                 <div className={classes.descriptionBlock}>
                     <div  className={classes.nameBlock}>
                         <h2>Ralf</h2>

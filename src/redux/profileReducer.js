@@ -9,7 +9,8 @@ let initialState = {
         { id: 3, message:'Its my first post!', likesCount: '12' },
         { id: 4, message:'I congratulate you and wish you all the best!', likesCount: '14' }
     ],
-    newPostText: "Hey, Bro! create new post"
+    newPostText: "Hey, Bro! create new post",
+    profile: null
 };
 
 function profileReducer(state = initialState, action) {
