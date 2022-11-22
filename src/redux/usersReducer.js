@@ -125,7 +125,20 @@ export function follow (userId) {
             dispatch(toggleFollowingProgress (false, userId)); 
         });
     }
-} 
+}
+
+export function unfollow (userId) {
+    return (dispatch) => {
+        dispatch(toggleFollowingProgress (true, userId));
+            usersAPI.unfollow(userId)
+            .then(response => {
+                if (response.data.resultCode == 0) {
+                    dispatch(unfollowSuccess(userId));
+                }
+            dispatch(toggleFollowingProgress (false, userId)); 
+        });
+    }
+}
 
 
 export default usersReducer;
