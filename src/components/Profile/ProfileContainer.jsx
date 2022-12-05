@@ -23,8 +23,7 @@ class ProfileContainer extends React.Component {
             this.props.getUserProfile(userId);
     }
 
-    render() {
-        // if (!this.props.isAuth) return <Navigate to={"/login"}/>; 
+    render() { 
         return (
             <div>
                 <Profile {...this.props} profile={this.props.profile}/>
@@ -32,9 +31,15 @@ class ProfileContainer extends React.Component {
         )
     }
 }
+
+function AuthRedirectComponent (props) {
+    if (!this.props.isAuth) return <Navigate to={"/login"}/>;
+    return <ProfileContainer {...props}/>
+}
+
 let mapStateToProps = (state) => ({
     profile: state.profilePage.profile,
-    // isAuth: state.auth.isAuth
+    isAuth: state.auth.isAuth
 });
 
 function withRouter (Component) {
