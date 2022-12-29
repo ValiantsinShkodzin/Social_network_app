@@ -3,8 +3,17 @@ import Profile from './Profile';
 import { connect } from 'react-redux';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import { getUserProfile} from '../../redux/profileReducer';
-import { Navigate } from 'react-router-dom';
+import withAuthRedirect from '../hoc/withAuthRedirect';
 
+function withRouter (Component) {
+    function WithUrlDataContainerComponent(props) {
+        let location = useLocation();
+        let navigate = useNavigate();
+        let params = useParams();
+        return (<Component {...props} router = {{location, navigate, params}}/>);
+    };
+    return WithUrlDataContainerComponent;
+}
 
 class ProfileContainer extends React.Component {
     componentDidMount(){
@@ -13,14 +22,6 @@ class ProfileContainer extends React.Component {
             userId = 2;
         }
        this.props.getUserProfile(userId);
-    }
-
-    componentDidUpdate(prevProps){
-        let userId = this.props.router.params.userId;
-        if (prevProps.router.params.userId !== userId) {
-            let userId = 2;
-        }
-            this.props.getUserProfile(userId);
     }
 
     render() { 
@@ -32,25 +33,12 @@ class ProfileContainer extends React.Component {
     }
 }
 
-function AuthRedirectComponent (props) {
-    if (!this.props.isAuth) return <Navigate to={"/login"}/>;
-    return <ProfileContainer {...props}/>
-}
+const AuthRedirectComponent = withAuthRedirect(ProfileContainer);
 
 let mapStateToProps = (state) => ({
     profile: state.profilePage.profile,
-    isAuth: state.auth.isAuth
 });
 
-function withRouter (Component) {
-    function WithUrlDataContainerComponent(props) {
-        let location = useLocation();
-        let navigate = useNavigate();
-        let params = useParams();
-        return (<Component {...props} router = {{location, navigate, params}}/>);
-    };
-    return WithUrlDataContainerComponent;
-}
-export default connect (mapStateToProps, {getUserProfile}) (withRouter(ProfileContainer));
 
+export default connect (mapStateToProps, {getUserProfile}) (withRouter(AuthRedirectComponent));
 

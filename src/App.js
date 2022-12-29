@@ -19,16 +19,16 @@ function App(props) {
       <Navbar />
       <div className='appWrapperContent'>
         <Routes>
-          <Route path='profile' element={<ProfileContainer
+          <Route path='/*' element={<ProfileContainer
                                     store={props.store} />} />;
-          <Route path=':userId' element={<ProfileContainer
+          <Route path='/profile/:userId' element={<ProfileContainer
                                     store={props.store} />} />;                         
           <Route path='/dialogs/*' element={<DialogsContainer
                                     store={props.store} />} />;
-          <Route path='/users' element={<UsersContainer />} />;
-          <Route path='/news' element={<News />} />;
-          <Route path='/music' element={<Music />} />;
-          <Route path='/settings' element={<Settings />} />;
+          <Route path='/users/*' element={<UsersContainer />} />;
+          <Route path='/news/*' element={<News />} />;
+          <Route path='/music/*' element={<Music />} />;
+          <Route path='/settings/*' element={<Settings />} />;
           <Route path='/login' element={<Login />} />;
         </Routes>
       </div>
