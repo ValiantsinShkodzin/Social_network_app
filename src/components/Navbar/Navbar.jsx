@@ -10,7 +10,7 @@ function Navbar() {
         <nav className={classes.appNav}>
             <div className={classes.linksNav}>
                 <div className={classes.item}>
-                    <NavLink to='/' className={ActiveLink}>Profile</NavLink>
+                    <NavLink to='/profile' className={ActiveLink}>Profile</NavLink>
                 </div>
                 <div className={classes.item}>
                     <NavLink to='/dialogs' className={ActiveLink}>Messages</NavLink>
