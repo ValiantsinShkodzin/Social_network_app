@@ -10,7 +10,6 @@ import Settings from './components/Settings/Settings';
 import UsersContainer from './components/Users/UsersContainer';
 import ProfileContainer from './components/Profile/ProfileContainer';
 
-
 function App(props) {
   return (
     <div className="appWrapper">
@@ -18,8 +17,9 @@ function App(props) {
       <Navbar />
       <div className='appWrapperContent'>
         <Routes>
+        
           <Route path='/profile/:userId' element={<ProfileContainer
-                                    store={props.store} />} />;
+                                    store={props.store} />} />; 
           <Route path='/profile/*' element={<ProfileContainer
                                     store={props.store} />} />;                         
           <Route path='/dialogs/*' element={<DialogsContainer

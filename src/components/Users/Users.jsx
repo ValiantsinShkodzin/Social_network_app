@@ -14,7 +14,7 @@ function Users(props) {
     return <div>
         <div className={classes.numerPages}>
             {pages.map(p => {
-                return <span className={props.currentPage === p && classes.selectedPage}
+                return <span className={props.currentPage === p && classes.selectedPage}key={p}
                     onClick={(e) => { props.onPageChanged(p) }}>{p}</span>
             })}
 
@@ -24,8 +24,8 @@ function Users(props) {
                 <div key={u.id}>
                     <span>
                         <div>
-                            <NavLink to={'./../' + u.id}>
-                                <img src={u.photos.small != null ? u.photos.small : userPhoto} className={classes.userPhoto}></img>
+                            <NavLink to={'/profile/' + u.id}>
+                                <img src={u.photos.small != null ? u.photos.small : userPhoto} className={classes.userPhoto} alt="img not found"></img>
                             </NavLink>
                         </div>
                         <div>
