@@ -1,7 +1,6 @@
 import './App.css';
 import * as React from "react";
 import { Routes, Route } from "react-router-dom";
-import Header from './components/Header/Header';
 import Navbar from './components/Navbar/Navbar';
 import DialogsContainer from './components/Dialogs/DialogsContainer';
 import News from './components/News/News';
