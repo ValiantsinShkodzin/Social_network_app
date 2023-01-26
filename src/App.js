@@ -9,6 +9,7 @@ import Settings from './components/Settings/Settings';
 import UsersContainer from './components/Users/UsersContainer';
 import ProfileContainer from './components/Profile/ProfileContainer';
 import HeaderContainer from './components/Header/HeaderContainer';
+import Login from './components/Login/Login';
 
 function App(props) {
   return (
@@ -28,6 +29,7 @@ function App(props) {
           <Route path='/news' element={<News />} />;
           <Route path='/music' element={<Music />} />;
           <Route path='/settings' element={<Settings />} />;
+          <Route path='/login' element={<Login />} />;
         </Routes>
       </div>
     </div>

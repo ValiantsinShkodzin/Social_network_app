@@ -4,7 +4,8 @@ import axios from 'axios';
 import { connect } from 'react-redux';
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { setUserProfile } from '../../redux/profileReducer';
-import { usersAPI } from '../api/api';
+import { Navigate } from 'react-router-dom';
+import { getUserProfile } from '../../redux/profileReducer';
 
 class ProfileContainer extends React.Component {
     componentDidMount() {
@@ -12,22 +13,21 @@ class ProfileContainer extends React.Component {
         if (!userId) {
             userId = 2;
         }
-        usersAPI.getProfile(userId).then(response => {
-                this.props.setUserProfile(response.data);
-            });
+        this.props.getUserProfile(userId);
     }
 
     componentDidUpdate(prevProps) {
         let userId = this.props.router.params.userId;
         if (prevProps.router.params.userId !== userId) {
             let userId = 2;
-            axios.get(`https://social-network.samuraijs.com/api/1.0/profile/${userId}`)
-                .then(response => {
-                    this.props.setUserProfile(response.data);
-                });
-        }
+        axios.get(`https://social-network.samuraijs.com/api/1.0/profile/${userId}`)
+            .then(response => {
+                this.props.setUserProfile(response.data);
+            });
+    }
     }
     render() {
+        if (!this.props.isAuth) return <Navigate to={"/login"}/>;
         return (
             <div>
                 <Profile {...this.props} profile={this.props.profile} />
@@ -37,7 +37,8 @@ class ProfileContainer extends React.Component {
 }
 
 let mapStateToProps = (state) => ({
-    profile: state.profilePage.profile
+    profile: state.profilePage.profile,
+    isAuth: state.auth.isAuth
 });
 
 function withRouter(Component) {
@@ -50,7 +51,7 @@ function withRouter(Component) {
     return WithUrlDataContainerComponent;
 }
 export default connect(mapStateToProps, {
-    setUserProfile
+    getUserProfile, setUserProfile
 })(withRouter(ProfileContainer));
 
 
