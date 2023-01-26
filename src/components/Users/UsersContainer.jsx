@@ -3,6 +3,8 @@ import { follow, setCurrentPage, unfollow, toggleFollowingProgress, getUsers } f
 import React from 'react';
 import Users from './Users';
 import Preloader from '../common/Preloader/Preloader';
+import { compose } from 'redux';
+import withAuthRedirect from '../hoc/withAuthRedirect';
 
 class UsersContainer extends React.Component {
     componentDidMount = () => {
@@ -37,11 +39,14 @@ function mapStateToProps(state) {
         followingInProgress: state.usersPage.followingInProgress
     })
 }
-
-export default connect(mapStateToProps, {
+const mapDispatchToProps = {
     follow,
     unfollow,
-    getUsers,
     setCurrentPage,
-    toggleFollowingProgress
-})(UsersContainer);
+    toggleFollowingProgress,
+    getUsers
+};
+export default compose (
+    withAuthRedirect,
+    connect(mapStateToProps, mapDispatchToProps))
+    (UsersContainer)
