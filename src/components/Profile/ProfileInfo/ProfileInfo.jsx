@@ -1,8 +1,8 @@
 import React from 'react';
-import imgProfileTopBanner from '../../../img/imgProfileTopBanner.jpg'
-import classes from './ProfileInfo.module.css'
-import Preloader from '../../common/Preloader/Preloader'
-
+import imgProfileTopBanner from '../../../img/imgProfileTopBanner.jpg';
+import classes from './ProfileInfo.module.css';
+import Preloader from '../../common/Preloader/Preloader';
+import ProfileStatus from './ProfileStatus/ProfileStatus';
 
 function ProfileInfo(props) {
     if (!props.profile) {
@@ -22,7 +22,7 @@ function ProfileInfo(props) {
                     <div className={classes.nameBlock}>
                         <h2>{props.profile.fullName}</h2>
                         <hr />
-                        <span>Status: My lifes...My rules...</span>
+                        <ProfileStatus status={'My life...My rules'}/>
                     </div>
                     <div className={classes.descBlock}>
                         <span>Date of Birth: 14.08.1994</span><br />
