@@ -5,17 +5,18 @@ import sidebarReducer from "./sidebarReducer";
 import usersReducer from "./usersReducer";
 import authReducer from "./authReducer";
 import thunkMiddleware from "redux-thunk";
+import { reducer as formReducer } from 'redux-form';
 
-
-let redusers = combineReducers({
+const redusers = combineReducers({
     profilePage: profileReducer,
     dialogsPage: dialogsReducer,
     sidebar: sidebarReducer,
     usersPage: usersReducer,
-    auth: authReducer
+    auth: authReducer,
+    form: formReducer
 });
 
-let store = legacy_createStore(redusers, applyMiddleware(thunkMiddleware));
+const store = legacy_createStore(redusers, applyMiddleware(thunkMiddleware));
 
 
 export default store;
